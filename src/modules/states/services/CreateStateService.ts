@@ -1,10 +1,9 @@
 import { injectable, inject } from 'tsyringe';
 
-import AppError from '../../../shared/errors/AppError';
-
 import IStatesRepository from '@modules/states/repositories/IStatesRepository';
 
 import State from '@modules/states/infra/typeorm/entities/State';
+import AppError from '../../../shared/errors/AppError';
 
 interface IRequest {
   name: string;
@@ -18,14 +17,14 @@ class CreateStateService {
   ) {}
 
   public async execute({ name }: IRequest): Promise<State> {
-    if(!name){
-      throw new AppError('Insira o nome do estado.')
+    if (!name) {
+      throw new AppError('Insira o nome do estado.');
     }
 
     const checkStateExists = await this.statesRepository.findByName(name);
 
     if (checkStateExists) {
-      throw new AppError('Estado já cadastrado.')
+      throw new AppError('Estado já cadastrado.');
     }
 
     const state = await this.statesRepository.create({

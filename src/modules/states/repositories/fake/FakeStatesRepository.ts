@@ -1,6 +1,6 @@
 import { uuid } from 'uuidv4';
 
-import IStatesRepository from '../../repositories/IStatesRepository';
+import IStatesRepository from '../IStatesRepository';
 import ICreateStateDTO from '../../dtos/ICreateStateDTO';
 
 import State from '../../infra/typeorm/entities/State';
@@ -15,9 +15,7 @@ class FakeStatesRepository implements IStatesRepository {
   }
 
   public async findByName(name: string): Promise<State | undefined> {
-    const findState = this.states.find(user => user.name === name);
-
-    return findState;
+    return this.states.find(state => state.name === name);
   }
 
   public async create(stateData: ICreateStateDTO): Promise<State> {

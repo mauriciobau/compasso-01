@@ -11,12 +11,8 @@ let showState: ShowStateService;
 describe('ShowState', () => {
   beforeEach(() => {
     fakeStatesRepository = new FakeStatesRepository();
-    createState = new CreateStateService(
-      fakeStatesRepository,
-    );
-    showState = new ShowStateService(
-      fakeStatesRepository,
-    );
+    createState = new CreateStateService(fakeStatesRepository);
+    showState = new ShowStateService(fakeStatesRepository);
   });
 
   it('should be able to show states', async () => {

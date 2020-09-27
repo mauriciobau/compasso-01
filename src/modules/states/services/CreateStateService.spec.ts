@@ -9,9 +9,7 @@ let createState: CreateStateService;
 describe('CreateState', () => {
   beforeEach(() => {
     fakeStatesRepository = new FakeStatesRepository();
-    createState = new CreateStateService(
-      fakeStatesRepository,
-    );
+    createState = new CreateStateService(fakeStatesRepository);
   });
 
   it('should be able to create a new state', async () => {
@@ -35,10 +33,10 @@ describe('CreateState', () => {
   });
 
   it('should not be able to create a new unnamed state', async () => {
-      await expect(
-        createState.execute({
-          name: '',
-        }),
-      ).rejects.toBeInstanceOf(AppError);
+    await expect(
+      createState.execute({
+        name: '',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

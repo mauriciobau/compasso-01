@@ -2,11 +2,10 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateStateService from '@modules/states/services/CreateStateService';
-import ShowStatesService from "@modules/states/services/ShowStateService";
+import ShowStatesService from '@modules/states/services/ShowStateService';
 
 export default class StatesController {
-  public async index(request: Request, response: Response): Promise<Response>{
-
+  public async index(request: Request, response: Response): Promise<Response> {
     const showStates = container.resolve(ShowStatesService);
 
     const states = await showStates.execute();
@@ -25,5 +24,4 @@ export default class StatesController {
 
     return response.json(state);
   }
-
 }

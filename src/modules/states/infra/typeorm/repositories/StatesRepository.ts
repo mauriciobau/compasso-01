@@ -1,5 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
+import City from '@modules/cities/infra/typeorm/entities/City';
 import IStatesRepository from '../../../repositories/IStatesRepository';
 import ICreateStateDTO from '../../../dtos/ICreateStateDTO';
 
@@ -21,6 +22,7 @@ class StatesRepository implements IStatesRepository {
   public async findByName(name: string): Promise<State | undefined> {
     const state = await this.ormRepository.findOne({
       where: { name },
+      relations: ['cities'],
     });
 
     return state;
