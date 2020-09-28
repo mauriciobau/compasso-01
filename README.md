@@ -1,6 +1,6 @@
-### teste compasso 01
+## teste compasso 01
 
-# Requisitos
+### Requisitos
     Cadastrar cidade
     Cadastrar cliente
     Consultar cidade pelo nome
@@ -18,21 +18,21 @@ Considere o cadastro com dados básicos:
 
 ## Como executar o projeto
 
-# Instalar as dependencias:
+### Instalar as dependencias:
 yarn
 
 ou
 
 npm install
 
-# Criar bando de dados Sqlite
+### Criar bando de dados Sqlite
 yarn typeorm migration:run
 
 ou
 
 npm run typeorm migration:run
 
-# Iniciar servidor:
+### Iniciar servidor:
 yarn dev:server
 
 ou
@@ -41,7 +41,7 @@ npm run dev:server
 
 Servidor irá iniciar na porta 3333
 
-# Testes com Jest
+### Testes com Jest
 Para executar os testes unitário já definidos:
 yarn test
 
@@ -49,27 +49,24 @@ ou
 
 npm run test
 
-## Rotas para Estado
+## Rotas
 
-# Cadastro de Estado
+### Cadastro de Estado
 http://localhost:3333/states
 MÉTODO POST:
 {
   "name": "Nome do estado"
 }
 
-# Consultar Estados cadastrados
+### Consultar Estados cadastrados
 http://localhost:3333/states
 MÉTODO GET
 
-# Consultar Cidades do Estado
+### Consultar Cidades do Estado
 http://localhost:3333/states/Nome do Estado
 MÉTODO GET
 
-
-## Rotas para Cidade
-
-# Cadastro de Cidade
+### Cadastro de Cidade
 http://localhost:3333/cities
 MÉTODO POST:
 {
@@ -77,16 +74,14 @@ MÉTODO POST:
 	"state_id": "ID-DO-ESTADO"
 }
 
-# Consultar Cidade pelo nome
+### Consultar Cidade pelo nome
 http://localhost:3333/states
 MÉTODO GET:
 {
 	"name": "Nome da Cidade"
 }
 
-## Rotas para Cliente
-
-# Cadastro de Cliente
+### Cadastro de Cliente
 http://localhost:3333/clients
 {
 	"name": "Nome do Cliente",
@@ -96,18 +91,18 @@ http://localhost:3333/clients
 	"city_id": "ID-DA-CIDADE"
 }
 
-# Consultar Cliente pelo ID
+### Consultar Cliente pelo ID
 http://localhost:3333/clients/ID-DO-CLIENTE
 MÉTODO GET
 
-# Consultar Cliente pelo nome
+### Consultar Cliente pelo nome
 http://localhost:3333/clients
 MÉTODO GET:
 {
 	"name": "Nome do Cliente"
 }
 
-# Alterar dados do Cliente pelo ID
+### Alterar dados do Cliente pelo ID
 http://localhost:3333/clients/ID-DO-CLIENTE
 MÉTODO PUT:
 {
@@ -119,8 +114,8 @@ MÉTODO PUT:
 }
 
 
-# Deletar Cliente pelo ID
+### Deletar Cliente pelo ID
 http://localhost:3333/clients/ID-DO-CLIENTE
 MÉTODO DELETE
 
-OBS: Deletar está com problema no retorno do Typeorm com o banco Sqlite, é um problema do próprio ORM que não está devolvendo um retorno da execução, por isso a execução fica rodando até expirar, mas o dado é deletado do bando de dados.
+OBS: Deletar está com problema no retorno do Typeorm com o banco Sqlite, é um problema do próprio ORM que não está devolvendo um retorno da execução, por isso a execução fica rodando até expirar, mas o dado é deletado do bando de dados. Infelizmente não tive tempo para resolver este problema e deixar 100% funcional.
