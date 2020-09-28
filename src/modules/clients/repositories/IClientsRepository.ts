@@ -6,5 +6,5 @@ export default interface IClientsRepository {
   findByName(name: string): Promise<Client | undefined>;
   create(data: ICreateClientsDTO): Promise<Client>;
   update(client: Client): Promise<Client | undefined>;
-  delete(id: string): Promise<void>;
+  delete(id: string): Promise<any>;
 }

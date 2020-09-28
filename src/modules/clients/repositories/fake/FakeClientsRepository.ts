@@ -40,7 +40,7 @@ class FakeClientsRepository implements IClientsRepository {
     return client;
   }
 
-  public async delete(id: string): Promise<void> {
+  public async delete(id: string): Promise<any> {
     const findIndex = this.clients.findIndex(
       findClient => findClient.id === id,
     );

@@ -21,7 +21,7 @@ class CitiesRepository implements ICitiesRepository {
   public async findByCityName(name: string): Promise<City | undefined> {
     const city = await this.ormRepository.findOne({
       where: { name },
-      relations: ['state'],
+      relations: ['state', 'clients'],
     });
 
     return city;

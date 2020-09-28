@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { Entity, getRepository, Repository } from 'typeorm';
 
 import IClientsRepository from '@modules/clients/repositories/IClientsRepository';
 import ICreateClientsDTO from '@modules/clients/dtos/ICreateClientsDTO';
@@ -39,8 +39,20 @@ class ClientsRepository implements IClientsRepository {
     return this.ormRepository.save(client);
   }
 
-  public async delete(id: string): Promise<void> {
-    this.ormRepository.delete(id);
+  public async delete(id: string): Promise<any> {
+    // Typeorm apresentando problema de retorno ao deletar.
+    // Mas a execução do delete é realizada.
+    return this.ormRepository.delete(id);
+    // const retorno = await this.ormRepository
+    //   .createQueryBuilder()
+    //   .delete()
+    //   .from(Client)
+    //   .where('id = :id', { id })
+    //   .returning('*')
+    //   .execute();
+    // const retorno = await this.ormRepository.query(
+    //   `DELETE FROM clients WHERE id = '${id}';`,
+    // );
   }
 }
 

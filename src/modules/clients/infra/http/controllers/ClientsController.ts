@@ -51,11 +51,11 @@ export default class ClientController {
     return response.json(clientUpdated);
   }
 
-  public async delete(request: Request): Promise<void> {
-    const { client_id } = request.body;
+  public async delete(request: Request): Promise<any> {
+    const { client_id } = request.params;
 
     const deleteClient = container.resolve(DeleteClientService);
 
-    await deleteClient.execute({ client_id });
+    return deleteClient.execute({ client_id });
   }
 }
