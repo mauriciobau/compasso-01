@@ -16,16 +16,23 @@ Considere o cadastro com dados básicos:
     Cliente: nome completo, sexo, data de nascimento, idade e cidade onde mora.
 
 
-# Como executar o projeto
+## Como executar o projeto
 
-Instalar as dependencias:
+# Instalar as dependencias:
 yarn
 
 ou
 
 npm install
 
-Iniciar servidor:
+# Criar bando de dados Sqlite
+yarn typeorm migration:run
+
+ou
+
+npm run typeorm migration:run
+
+# Iniciar servidor:
 yarn dev:server
 
 ou
@@ -34,7 +41,7 @@ npm run dev:server
 
 Servidor irá iniciar na porta 3333
 
-## Testes com Jest
+# Testes com Jest
 Para executar os testes unitário já definidos:
 yarn test
 
